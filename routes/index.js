@@ -12,7 +12,13 @@ router.get('/', ensureGuest, (req, res) => {
 
 
 router.get('/dashboard', ensureAuth, (req, res) => {
-    res.render('dashboard')
+    res.render('dashboard', {
+        name: req.user.firstName
+    })
+})
+
+router.get('/profile', (req, res) => {
+    res.send('hello it is my profile')
 })
 
 module.exports = router
